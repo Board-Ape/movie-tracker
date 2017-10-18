@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import MovieCard from './MovieCard';
-import fetchMovieList from '../actions'
+import fetchMovieList from '../actions';
+const key = require('../../utils/key');
 
 class MovieCatalog extends Component {
   constructor() {
@@ -9,7 +10,7 @@ class MovieCatalog extends Component {
   }
 
   componentDidMount() {
-
+    fetchMovieList(`https://api.themoviedb.org/3/movie/now_playing?api_key=${key}`)
   }
 
   render() {

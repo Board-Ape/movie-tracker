@@ -21,12 +21,13 @@ export function moviesFetchDataSuccess(movies) {
 
 export default function fetchMovieList(url) {
   return (dispatch) => {
+    dispatch(moviesIsLoading(true))
     fetch(url)
       .then((response) => {
         if (!reponse.ok) {
           throw Error(reponse.statusText)
         }
-        dispatch(moviesIsLoading)
+        dispatch(moviesIsLoading(false))
         return response;
       })
       .then((reponse) => response.json())
