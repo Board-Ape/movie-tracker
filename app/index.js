@@ -5,9 +5,10 @@ import MovieIndex from './components/movieIndex';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from './reducers';
+import configureStore from './store/configureStore';
 
-const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
-const store = createStore(rootReducer, devTools);
+
+const store = configureStore();
 
 ReactDOM.render(
   <Provider store={ store }>
