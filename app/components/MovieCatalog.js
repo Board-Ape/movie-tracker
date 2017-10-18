@@ -15,11 +15,15 @@ class MovieCatalog extends Component {
   }
 
   render() {
-
-    return ( 
-
+    const movieArray = this.props.movies
+    const movieCardsArray = movieArray.map( (movie) => {
+      return (<MovieCard key={movie.id}
+                         title={movie.title} />)
+    })
+    return (
       <div>
-      MOVIES
+        Movie Catalog
+        {movieCardsArray}
       </div>
     )
   }
