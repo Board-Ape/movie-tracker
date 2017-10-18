@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import MovieCard from './MovieCard';
+import Modal from './Modal';
 import { fetchMovieList } from '../actions';
 const key = require('../../utils/key');
 
@@ -23,6 +24,7 @@ class MovieCatalog extends Component {
     return (
       <div>
         Movie Catalog
+        <Modal />
         {movieCardsArray}
       </div>
     )
