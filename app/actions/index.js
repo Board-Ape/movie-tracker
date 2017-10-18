@@ -35,3 +35,7 @@ export const fetchMovieList = (url) => {
         .catch(() => dispatch(moviesHasErrored(true)));
   };
 }
+
+export const userSignIn = (username, password) => {
+  console.log(username, password);
+}
