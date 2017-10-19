@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { userSignIn } from '../actions';
+import { userSignIn } from '../../actions';
 
 class SignIn extends Component {
   constructor() {

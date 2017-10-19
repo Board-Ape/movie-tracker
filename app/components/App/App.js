@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import MovieCatalog from '../MovieCatalog/MovieCatalog.js';
 
-export default class MovieIndex extends Component {
+export default class App extends Component {
   constructor() {
     super();
   }
@@ -8,7 +9,7 @@ export default class MovieIndex extends Component {
   render() {
     return (
       <div>
-      MOVIES
+        <MovieCatalog />
       </div>
     )
   }
