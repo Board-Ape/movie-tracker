@@ -1,8 +1,6 @@
-
 import React, { Component } from 'react';
+import App from './components/App/App';
 import ReactDOM from 'react-dom';
-import App from './components/app';
-import MovieIndex from './components/movieIndex';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from './reducers';
