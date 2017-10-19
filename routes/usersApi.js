@@ -10,3 +10,5 @@ router.get('/users/:id/favorites', db.getAllFavorites)
 router.delete('/users/:id/favorites/:movie_id', db.deleteFavorite)
 
 module.exports = router;
+
+

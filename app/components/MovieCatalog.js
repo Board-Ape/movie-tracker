@@ -11,7 +11,6 @@ class MovieCatalog extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props)
     this.props.fetchMovieList(`https://api.themoviedb.org/3/movie/now_playing?api_key=${key}`)
   }
 
@@ -35,13 +34,14 @@ const mapStateToProps = (state) => {
   return {
     movies: state.movies,
     hasErrored: state.moviesHasErrored,
-    isLoading: state.moviesIsLoading
+    isLoading: state.moviesIsLoading,
+    user: state.user
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchMovieList: (url) => dispatch(fetchMovieList(url))
+    fetchMovieList: (url) => dispatch(fetchMovieList(url)),
   };
 };
 

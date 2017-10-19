@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
-import { userSignIn } from '../actions';
+import { fetchUserSigningIn } from '../actions';
+import { connect } from 'react-redux';
 
 class SignIn extends Component {
   constructor() {
     super();
     this.state = {
-      username: '',
+      email: '',
       password: ''
     }
   }
@@ -17,16 +18,16 @@ class SignIn extends Component {
   render() {
     return(
       <div>
-        <input placeholder='username'
-                value={this.state.username}
-                onChange={(e) => this.handleChange('username', e)} />
+        <input placeholder='email'
+                value={this.state.email}
+                onChange={(e) => this.handleChange('email', e)} />
         <input placeholder='password'
                 value={this.state.password}
                 onChange={(e) => this.handleChange('password', e)} />
         <button type='Submit'
                 onClick={(e) => {
                   e.preventDefault()
-                  userSignIn(this.state.username, this.state.password);
+                  this.props.fetchUserSigningIn(this.state.email, this.state.password);
                 }}>
           Submit
         </button>
@@ -35,4 +36,12 @@ class SignIn extends Component {
   }
 }
 
-export default SignIn;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchUserSigningIn: (email, password) => dispatch(fetchUserSigningIn(email, password))
+  };
+};
+
+
+export default connect(null, mapDispatchToProps)(SignIn);
+
