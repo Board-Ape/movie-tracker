@@ -1,15 +1,1 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 5px;
-  background-color: green;
-}
-
-#main h1 {
-  display: grid;
-  font-family: 'Orbitron', sans-serif;
-}
-
-#main {
-  text-align: center;
-}
+@import './components/App/App';
