@@ -1,3 +1,8 @@
 .movie-card {
   display: grid;
 }
+
+.movie-poster {
+  width: 300px;
+  justify-self: stretch;
+}
