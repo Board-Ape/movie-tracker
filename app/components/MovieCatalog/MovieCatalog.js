@@ -18,11 +18,11 @@ class MovieCatalog extends Component {
     const movieArray = this.props.movies
     const movieCardsArray = movieArray.map( (movie) => {
       return (<MovieCard key={movie.id}
-                         title={movie.title} />)
+                         title={movie.title}
+                         poster={movie.poster_path}/>)
     })
     return (
-      <div>
-        Movie Catalog
+      <div className='grid-catalog'>
         <Modal />
         {movieCardsArray}
       </div>

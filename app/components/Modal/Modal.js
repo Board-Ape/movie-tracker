@@ -3,7 +3,7 @@ import SignIn from '../SignIn/SignIn'
 
 const Modal = () => {
   return(
-    <div>
+    <div className='modal'>
       <SignIn />
     </div>
   )
