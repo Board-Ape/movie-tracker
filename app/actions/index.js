@@ -55,9 +55,33 @@ export const fetchUserSigningIn = (email, password) => {
 };
 
 export const setActiveUser = (user) => {
-  console.log('setActiveUser', user)
   return {
     type: 'SET_ACTIVE_USER',
     user
+  }
+}
+
+export const AddUser = (name, password, email) => {
+  console.log(name, password, email)
+  return (dispatch) => {
+    fetch('/api/users/new', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name,
+        password,
+        email
+      })
+    })
+    .then(results => results.json())
+    // .then(res => console.log(res))
+    .then(res => (dispatch(setActiveUser({
+        id: res.id,
+        name,
+        password,
+        email
+    }))))
   }
 }

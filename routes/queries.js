@@ -38,8 +38,14 @@ function signIn(req, res, next) {
 
 function createUser(req, res, next) {
   req.body.email = req.body.email.toLowerCase();
-  db.one('insert into users(name, password, email)' + 'values(${name}, ${password}, ${email}) returning id', req.body).then(function(data) {
-    res.status(200).json({ status: 'success', message: "New user created", id: data.id});
+  db.one('insert into users(name, password, email)' + 'values(${name}, ${password}, ${email}) returning id', req.body)
+  .then(function(data) {
+  res.status(200)
+    .json({ 
+      status: 'success', 
+      message: "New user created", 
+      id: data.id
+    });
   }).catch(function(err) {
     res.status(500).json({error: err.detail});
   })
@@ -49,7 +55,11 @@ function addFavorite(req, res, next) {
   db.one('insert into favorites(movie_id, user_id, title, poster_path, release_date, vote_average, overview)' +
   'values(${movie_id}, ${user_id}, ${title}, ${poster_path}, ${release_date}, ${vote_average}, ${overview}) returning id', req.body)
   .then(function(data) {
-    res.status(200).json({ status: 'success', message: "Movie was added to favorites", id: data.id});
+    res.status(200).json({ 
+                      status: 'success', 
+                      message: "Movie was added to favorites", 
+                      id: data.id
+                    });
   }).catch(function(err) {
     next(err);
   })
@@ -75,7 +85,9 @@ function deleteFavorite(req, res, next) {
   var user_id = parseInt(req.params.id);
   db.result('delete from favorites where user_id = $1 and movie_id = $2', [user_id, movie_id]).then(function(result) {
     res.status(200)
-    .json({status: 'success', message: `${result.rowCount} row was deleted.`})
+    .json({
+      status: 'success', 
+      message: `${result.rowCount} row was deleted.`})
   })
   .catch(function(err) {
     return next(err);
