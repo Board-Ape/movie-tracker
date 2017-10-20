@@ -11,6 +11,7 @@ const MovieCard = (props) => {
   return (
 
     <div className='movie-card'>
+
       <h1>{props.title}</h1>
       <button 
           onClick={(e)=>{
@@ -19,6 +20,7 @@ const MovieCard = (props) => {
             
           } }
            >fav</button>
+
       <img className='movie-poster'
            src={`https://image.tmdb.org/t/p/w500${poster}`}
 
