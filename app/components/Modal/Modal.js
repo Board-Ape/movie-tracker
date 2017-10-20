@@ -1,12 +1,15 @@
 import React from 'react';
-import SignIn from '../SignIn/SignIn'
+import SignIn from '../SignIn/SignIn';
+import SignUp from '../SignUp/SignUp';
 
 const Modal = () => {
   return(
     <div>
-      <SignIn />
+      <SignUp />
+      <SignIn />  
     </div>
   )
 }
 
 export default Modal;
+
