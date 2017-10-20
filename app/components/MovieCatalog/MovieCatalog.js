@@ -17,9 +17,7 @@ class MovieCatalog extends Component {
   render() {
     const movieArray = this.props.movies
     const movieCardsArray = movieArray.map( (movie) => {
-      return (<MovieCard key={movie.id}
-                         title={movie.title}
-                         poster={movie.poster_path}/>)
+      return (<MovieCard key={movie.id} movie={ movie }/>)
     })
     return (
       <div className='grid-catalog'>

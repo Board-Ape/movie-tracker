@@ -85,3 +85,12 @@ export const AddUser = (name, password, email) => {
     }))))
   }
 }
+
+
+export const toggleFavorite = (movie) => {
+  console.log('toggleAction', movie)
+  return {
+    type: 'TOGGLE_FAVORITE',
+    movie
+  }
+}
