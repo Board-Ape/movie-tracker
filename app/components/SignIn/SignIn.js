@@ -17,7 +17,7 @@ class SignIn extends Component {
 
   render() {
     return(
-      <div>
+      <div className='sign-in'>
         <input placeholder='email'
                 value={this.state.email}
                 onChange={(e) => this.handleChange('email', e)} />

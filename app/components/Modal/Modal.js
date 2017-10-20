@@ -4,9 +4,9 @@ import SignUp from '../SignUp/SignUp';
 
 const Modal = () => {
   return(
-    <div>
-      <SignUp />
-      <SignIn />  
+
+    <div className='modal'>
+      <SignIn />
     </div>
   )
 }
