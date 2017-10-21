@@ -51,6 +51,7 @@ export const fetchUserSigningIn = (email, password) => {
     })
     .then(results => results.json())
     .then(res => (dispatch(setActiveUser(res.data))))
+    .then(userData => (dispatch(fetchFavorites(userData.user.id))))
   }
 };
 
@@ -62,7 +63,6 @@ export const setActiveUser = (user) => {
 }
 
 export const AddUser = (name, password, email) => {
-  console.log(name, password, email)
   return (dispatch) => {
     fetch('/api/users/new', {
       method: 'POST',
@@ -76,13 +76,26 @@ export const AddUser = (name, password, email) => {
       })
     })
     .then(results => results.json())
-    // .then(res => console.log(res))
     .then(res => (dispatch(setActiveUser({
         id: res.id,
         name,
         password,
         email
     }))))
+  }
+}
+
+export const fetchFavorites = (id) => {
+  console.log(id)
+  return (dispatch) => {
+    fetch(`/api/users/${id}/favorites`)
+    .then(response => response.json())
+    .then( favResponse => {
+      return (favResponse.data.map(favorite=> {
+        dispatch(toggleFavorite(movie))
+      }))
+    })
+    .then(res => console.log(res.data))
   }
 }
 
