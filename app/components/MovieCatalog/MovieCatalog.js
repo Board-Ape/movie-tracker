@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import MovieCard from '../MovieCard/MovieCard';
-import Modal from '../Modal/Modal';
 import { fetchMovieList } from '../../actions';
 const key = require('../../../utils/key');
 

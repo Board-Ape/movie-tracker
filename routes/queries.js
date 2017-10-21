@@ -9,6 +9,7 @@ var connectionString = 'postgres://localhost:5432/users';
 var db = pgp(connectionString);
 
 function getAllUsers(req, res, next) {
+  console.log(req.body);
   db.any('select * from users')
     .then(function(data) {
       res.status(200).json({
@@ -41,9 +42,9 @@ function createUser(req, res, next) {
   db.one('insert into users(name, password, email)' + 'values(${name}, ${password}, ${email}) returning id', req.body)
   .then(function(data) {
   res.status(200)
-    .json({ 
-      status: 'success', 
-      message: "New user created", 
+    .json({
+      status: 'success',
+      message: "New user created",
       id: data.id
     });
   }).catch(function(err) {
@@ -55,9 +56,9 @@ function addFavorite(req, res, next) {
   db.one('insert into favorites(movie_id, user_id, title, poster_path, release_date, vote_average, overview)' +
   'values(${movie_id}, ${user_id}, ${title}, ${poster_path}, ${release_date}, ${vote_average}, ${overview}) returning id', req.body)
   .then(function(data) {
-    res.status(200).json({ 
-                      status: 'success', 
-                      message: "Movie was added to favorites", 
+    res.status(200).json({
+                      status: 'success',
+                      message: "Movie was added to favorites",
                       id: data.id
                     });
   }).catch(function(err) {
@@ -86,7 +87,7 @@ function deleteFavorite(req, res, next) {
   db.result('delete from favorites where user_id = $1 and movie_id = $2', [user_id, movie_id]).then(function(result) {
     res.status(200)
     .json({
-      status: 'success', 
+      status: 'success',
       message: `${result.rowCount} row was deleted.`})
   })
   .catch(function(err) {

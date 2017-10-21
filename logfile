@@ -1,0 +1,23 @@
+2017-10-21 10:47:52.066 MDT [4345] LOG:  listening on IPv6 address "::1", port 5432
+2017-10-21 10:47:52.066 MDT [4345] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2017-10-21 10:47:52.066 MDT [4345] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2017-10-21 10:47:52.082 MDT [4347] LOG:  database system was shut down at 2017-10-21 10:46:04 MDT
+2017-10-21 10:47:52.092 MDT [4345] LOG:  database system is ready to accept connections
+2017-10-21 10:47:58.732 MDT [4360] FATAL:  database "bounce" does not exist
+2017-10-21 10:50:21.792 MDT [6714] FATAL:  database "bounce" does not exist
+2017-10-21 10:50:38.623 MDT [6725] FATAL:  database "bounce" does not exist
+2017-10-21 10:50:46.485 MDT [6732] FATAL:  database "bounce" does not exist
+2017-10-21 10:50:54.069 MDT [6739] FATAL:  database "bounce" does not exist
+2017-10-21 10:51:31.728 MDT [6764] FATAL:  database "bounce" does not exist
+2017-10-21 10:55:33.830 MDT [8049] FATAL:  database "bounce" does not exist
+2017-10-21 10:56:46.555 MDT [8456] FATAL:  database "bounce" does not exist
+2017-10-21 10:57:02.578 MDT [8471] FATAL:  database "bounce" does not exist
+2017-10-21 10:57:53.633 MDT [8510] FATAL:  database "bounce" does not exist
+2017-10-21 10:58:33.223 MDT [8898] FATAL:  database "bounce" does not exist
+2017-10-21 10:58:46.371 MDT [8909] FATAL:  database "bounce" does not exist
+2017-10-21 11:53:29.371 MDT [9826] FATAL:  database "bounce" does not exist
+2017-10-21 11:53:33.785 MDT [9832] FATAL:  database "bounce" does not exist
+2017-10-21 12:08:42.179 MDT [4345] LOG:  received smart shutdown request
+2017-10-21 12:08:42.183 MDT [4345] LOG:  worker process: logical replication launcher (PID 4353) exited with exit code 1
+2017-10-21 12:08:42.183 MDT [4348] LOG:  shutting down
+2017-10-21 12:08:42.190 MDT [4345] LOG:  database system is shut down
