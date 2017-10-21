@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import MovieCatalog from '../MovieCatalog/MovieCatalog.js';
 import { Route } from 'react-router';
 import { withRouter } from 'react-router-dom';
-import Modal from '../Modal/Modal';
 import SignIn from '../SignIn/SignIn';
 import SignUp from '../SignUp/SignUp';
 
@@ -31,7 +30,7 @@ class App extends Component {
           render={() =>
             <MovieCatalog />}
         />
-       
+
         </div>
 
     )
