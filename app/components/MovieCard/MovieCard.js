@@ -1,13 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { toggleFavorite } from '../../actions';
+import { toggleFavorite, AddFavorite } from '../../actions';
 
 
 
 const MovieCard = (props) => {
   const title = props.movie.title;
   const poster = props.movie.poster_path;
-
+  const checkFavorite = (movie) => {
+    console.log(props)
+    // console.log(movie)
+    props.AddFavorite(movie, props.user.id)
+  }
   return (
 
     <div className='movie-card'>
@@ -16,6 +20,7 @@ const MovieCard = (props) => {
       <button className='favoriteButtons'
           onClick={(e)=>{
             e.preventDefault()
+            checkFavorite(props.movie)
             props.toggleFavorite(props.movie)
 
           } }
@@ -29,10 +34,18 @@ const MovieCard = (props) => {
   )
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapStateToProps = (state) => {
   return {
-    toggleFavorite: (movie) => dispatch(toggleFavorite(movie)),
+    user: state.user,
+    favorites: state.favorites
   };
 };
 
-export default connect(null, mapDispatchToProps)(MovieCard);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    toggleFavorite: (movie) => dispatch(toggleFavorite(movie)),
+    AddFavorite: (movie, id) => dispatch(AddFavorite(movie, id))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MovieCard);

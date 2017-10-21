@@ -53,6 +53,7 @@ function createUser(req, res, next) {
 }
 
 function addFavorite(req, res, next) {
+  console.log(req.body)
   db.one('insert into favorites(movie_id, user_id, title, poster_path, release_date, vote_average, overview)' +
   'values(${movie_id}, ${user_id}, ${title}, ${poster_path}, ${release_date}, ${vote_average}, ${overview}) returning id', req.body)
   .then(function(data) {

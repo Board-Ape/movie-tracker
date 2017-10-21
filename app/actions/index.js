@@ -91,17 +91,29 @@ export const fetchFavorites = (id) => {
     fetch(`/api/users/${id}/favorites`)
     .then(response => response.json())
     .then( favResponse => {
-      return (favResponse.data.map(favorite=> {
-        dispatch(toggleFavorite(movie))
+        (favResponse.data.map(favorite=> {
+        dispatch(toggleFavorite(favorite))
       }))
     })
-    .then(res => console.log(res.data))
+    .then(res => console.log(res))
+  }
+}
+
+export const AddFavorite = (movie, id) => {
+  return (dispatch) => {
+    fetch('/api/users/favorites/new', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ movie_id: movie.id, user_id: id, title: movie.title, poster_path: movie.poster_path, release_date: movie.release_date, vote_average: movie.vote_average, overview: movie.overview })})
+    .then(result => result.json())
+    .then(response => console.log(response))
   }
 }
 
 
-export const toggleFavorite = (movie) => {
-  console.log('toggleAction', movie)
+export const toggleFavorite = (movie) => {  
   return {
     type: 'TOGGLE_FAVORITE',
     movie
