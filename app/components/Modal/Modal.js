@@ -7,9 +7,9 @@ const Modal = () => {
 
     <div className='modal'>
       <SignIn />
+      <SignUp />
     </div>
   )
 }
 
 export default Modal;
-
