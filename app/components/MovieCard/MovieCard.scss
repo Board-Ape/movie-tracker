@@ -1,3 +1,15 @@
+$regent-gray: #808CA2;
+$akaroa-tan: #DBC6B3;
+
+.favoriteButtons {
+  background-color: $regent-gray;
+}
+
+.favoriteButtons:hover {
+  background-color: $akaroa-tan;
+  border: 1px blue solid;
+}
+
 .movie-card {
   display: grid;
 }

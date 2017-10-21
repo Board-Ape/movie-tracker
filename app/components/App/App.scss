@@ -1,4 +1,4 @@
-$background-gray: #89838B;
+$mamba-gray: #89838B;
 
 * {
   box-sizing: border-box;
@@ -8,7 +8,7 @@ $background-gray: #89838B;
 }
 
 body {
-  background-color: #89838B;
+  background-color: $mamba-gray;
   background-repeat: no-repeat;
   background-size: cover;
 }
