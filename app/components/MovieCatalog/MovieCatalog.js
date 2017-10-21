@@ -21,7 +21,6 @@ class MovieCatalog extends Component {
     })
     return (
       <div className='grid-catalog'>
-        <Modal />
         {movieCardsArray}
       </div>
     )

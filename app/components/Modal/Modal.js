@@ -6,6 +6,7 @@ const Modal = () => {
   return(
 
     <div className='modal'>
+      <SignUp />
       <SignIn />
       <SignUp />
     </div>

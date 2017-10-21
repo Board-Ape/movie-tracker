@@ -6,13 +6,18 @@ import { Provider } from 'react-redux';
 import rootReducer from './reducers';
 import configureStore from './store/configureStore';
 import './main.scss';
+import createHistory from 'history/createBrowserHistory';
+import { ConnectedRouter, routerMiddleware } from 'react-router-redux';
 
+const history = createHistory()
 
 const store = configureStore();
 
 ReactDOM.render(
   <Provider store={ store }>
-    <App/>
+    <ConnectedRouter history={history}>
+      <App/>
+    </ConnectedRouter>
   </Provider>,
   document.getElementById('main')
 );
