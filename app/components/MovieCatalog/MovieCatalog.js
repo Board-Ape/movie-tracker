@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import MovieCard from '../MovieCard/MovieCard';
-import { fetchMovieList, setActiveUser } from '../../actions';
+import { fetchMovieList, setUserToState } from '../../actions';
 const key = require('../../../utils/key');
 
 class MovieCatalog extends Component {
@@ -48,7 +48,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(fetchMovieList(url))
     },
     handleSignInSuccess: (data) => {
-      dispatch(setActiveUser(data))
+      dispatch(setUserToState(data))
     }
   }
 };

@@ -50,14 +50,15 @@ export const fetchUserSigningIn = (email, password) => {
       })
     })
     .then(results => results.json())
-    .then(res => (dispatch(setActiveUser(res.data))))
+    .then(res => (dispatch(setUserToState(res.data))))
     .then(userData => (dispatch(fetchFavorites(userData.user.id))))
+    .catch(res => alert("You're email and password do not match our records, please sign up!"))
   }
 };
 
-export const setActiveUser = (user) => {
+export const setUserToState = (user) => {
   return {
-    type: 'SET_ACTIVE_USER',
+    type: 'SET_USER_TO_STATE',
     user
   }
 }
@@ -76,12 +77,18 @@ export const AddUser = (name, password, email) => {
       })
     })
     .then(results => results.json())
-    .then(res => (dispatch(setActiveUser({
-        id: res.id,
-        name,
-        password,
-        email
-    }))))
+    .then(res => {
+      if (!res.error) {
+        (dispatch(etUserToState({
+          id: res.id,
+          name,
+          password,
+          email
+        })))
+      } else {
+        alert("That Email as already been used.")
+      }
+    })
   }
 }
 
@@ -117,5 +124,11 @@ export const toggleFavorite = (movie) => {
   return {
     type: 'TOGGLE_FAVORITE',
     movie
+  }
+}
+
+export const userSignOut = () => {
+  return {
+    type: 'USER_SIGNOUT'
   }
 }
