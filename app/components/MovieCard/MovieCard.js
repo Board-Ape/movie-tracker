@@ -13,13 +13,13 @@ const MovieCard = (props) => {
     <div className='movie-card'>
 
       <h1>{props.title}</h1>
-      <button 
+      <button className='favoriteButtons'
           onClick={(e)=>{
             e.preventDefault()
             props.toggleFavorite(props.movie)
-            
+
           } }
-           >fav</button>
+           >Add Favorite</button>
 
       <img className='movie-poster'
            src={`https://image.tmdb.org/t/p/w500${poster}`}
@@ -31,7 +31,7 @@ const MovieCard = (props) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    toggleFavorite: (movie) => dispatch(toggleFavorite(movie)), 
+    toggleFavorite: (movie) => dispatch(toggleFavorite(movie)),
   };
 };
 
