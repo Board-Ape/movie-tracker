@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import MovieCard from '../MovieCard/MovieCard';
-import { fetchMovieList } from '../../actions';
+import { fetchMovieList, setActiveUser } from '../../actions';
 const key = require('../../../utils/key');
 
 class MovieCatalog extends Component {
@@ -9,8 +9,15 @@ class MovieCatalog extends Component {
     super();
   }
 
+  retrieveLocalStorage() {
+    if (localStorage.getItem('user')) {
+      this.props.handleSignInSuccess(JSON.parse(localStorage.getItem('user')))
+    }
+  }
+
   componentDidMount() {
     this.props.fetchMovieList(`https://api.themoviedb.org/3/movie/now_playing?api_key=${key}`)
+    this.retrieveLocalStorage();
   }
 
   render() {
@@ -37,8 +44,13 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchMovieList: (url) => dispatch(fetchMovieList(url)),
-  };
+    fetchMovieList: (url) => {
+      dispatch(fetchMovieList(url))
+    },
+    handleSignInSuccess: (data) => {
+      dispatch(setActiveUser(data))
+    }
+  }
 };
 
 
