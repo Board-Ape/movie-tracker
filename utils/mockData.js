@@ -1,4 +1,4 @@
-const movie1 = {
+const movieMock = {
   "vote_count":2193,
    "id":346364,
    "video":false,
@@ -14,3 +14,5 @@ const movie1 = {
    "overview":"In a small town in Maine, seven children known as The Losers Club come face to face with life problems, bullies and a monster that takes the shape of a clown called Pennywise.",
    "release_date":"2017-09-05"
 }
+
+// const userMock
