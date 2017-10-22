@@ -108,7 +108,6 @@ export const fetchFavorites = (id) => {
         dispatch(toggleFavorite(favorite))
       }))
     })
-    .then(res => console.log(res))
   }
 }
 
@@ -121,21 +120,13 @@ export const AddFavorite = (movie, id) => {
     },
     body: JSON.stringify({ movie_id: movie.id, user_id: id, title: movie.title, poster_path: movie.poster_path, release_date: movie.release_date, vote_average: movie.vote_average, overview: movie.overview })})
     .then(result => result.json())
-    .then(response => dispatch(updateObj(movie.movie_id, response.id)))
+    .then(response => console.log(response))
   }
 }
 
-export const updateObj = (movie_id, favId) => {
-    console.log('update: ', movie_id, favId)
-  return {
-    type: 'UPDATE_OBJ',
-    movie_id,
-    favId
-  }
-}
+
 
 export const removeFavorite = (userId, movieId) => {
-  console.log(userId, movieId)
   return (dispatch) => {
     fetch(`/api/users/${userId}/favorites/${movieId}`, {
       method: 'DELETE',

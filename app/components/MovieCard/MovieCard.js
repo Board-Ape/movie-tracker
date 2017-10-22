@@ -13,7 +13,6 @@ const MovieCard = (props) => {
     if (movie.isFavorite === false) {
       props.AddFavorite(movie, props.user.id)
     } else {
-      console.log(movie.id)
       props.removeFavorite(props.user.id, movie.movie_id)
     }
   }

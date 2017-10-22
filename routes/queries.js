@@ -9,7 +9,6 @@ var connectionString = 'postgres://localhost:5432/users';
 var db = pgp(connectionString);
 
 function getAllUsers(req, res, next) {
-  console.log(req.body);
   db.any('select * from users')
     .then(function(data) {
       res.status(200).json({
@@ -53,7 +52,6 @@ function createUser(req, res, next) {
 }
 
 function addFavorite(req, res, next) {
-  console.log(req.body)
   db.one('insert into favorites(movie_id, user_id, title, poster_path, release_date, vote_average, overview)' +
   'values(${movie_id}, ${user_id}, ${title}, ${poster_path}, ${release_date}, ${vote_average}, ${overview}) returning id', req.body)
   .then(function(data) {
@@ -83,7 +81,6 @@ function getAllFavorites(req, res, next) {
 }
 
 function deleteFavorite(req, res, next) {
-  console.log(req.body)
   var movie_id = parseInt(req.params.movie_id);
   var user_id = parseInt(req.params.id);
   db.result('delete from favorites where user_id = $1 and movie_id = $2', [user_id, movie_id]).then(function(result) {
