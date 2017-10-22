@@ -30,6 +30,10 @@ class App extends Component {
           render={() =>
             <MovieCatalog />}
         />
+        <Route path='/favorites'
+          render={() =>
+            <MovieCatalog />}
+        />
 
         </div>
 

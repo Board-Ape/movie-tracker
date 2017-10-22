@@ -12,6 +12,12 @@ $akaroa-tan: #DBC6B3;
 
 .movie-card {
   display: grid;
+  position: relative;
+}
+
+.favoriteButtons {
+  z-index: 2;
+  position: relative;
 }
 
 .movie-poster {

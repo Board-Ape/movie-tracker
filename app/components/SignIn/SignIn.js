@@ -18,6 +18,9 @@ class SignIn extends Component {
   render() {
     return(
       <div className='sign-in'>
+        <h2 className='signin-form-header'>
+          User Sign In
+        </h2>
         <input placeholder='email'
                 value={this.state.email}
                 onChange={(e) => this.handleChange('email', e)} />
