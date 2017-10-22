@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import MovieCard from '../MovieCard/MovieCard';
-import { fetchMovieList, setUserToState } from '../../actions';
+import Header from '../Header/Header';
+import { fetchMovieList, setUserToState, showFavorites } from '../../actions';
 const key = require('../../../utils/key');
 
 class MovieCatalog extends Component {
@@ -21,13 +22,17 @@ class MovieCatalog extends Component {
   }
 
   render() {
-    const movieArray = this.props.movies
+    // const moviesToRender = this.props.showFavorites ? this.props.favorites : this.props.movies
+    const movieArray = this.props.movies;
     const movieCardsArray = movieArray.map( (movie) => {
       return (<MovieCard key={movie.id} movie={ movie }/>)
     })
     return (
-      <div className='grid-catalog'>
-        {movieCardsArray}
+      <div className='home-page'>
+        <Header />
+        <div className='movie-cards'>
+          {movieCardsArray}
+        </div>
       </div>
     )
   }
@@ -38,9 +43,10 @@ const mapStateToProps = (state) => {
     movies: state.movies,
     hasErrored: state.moviesHasErrored,
     isLoading: state.moviesIsLoading,
-    user: state.user
+    user: state.user,
+    showFavorites: state.showFavorites
   };
-};
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -49,6 +55,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     handleSignInSuccess: (data) => {
       dispatch(setUserToState(data))
+    },
+    showFavorites: (bool) => {
+      dispatch(showFavorites(bool))
     }
   }
 };

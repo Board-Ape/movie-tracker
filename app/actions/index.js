@@ -120,7 +120,7 @@ export const AddFavorite = (movie, id) => {
 }
 
 
-export const toggleFavorite = (movie) => {  
+export const toggleFavorite = (movie) => {
   return {
     type: 'TOGGLE_FAVORITE',
     movie
@@ -132,3 +132,10 @@ export const userSignOut = () => {
     type: 'USER_SIGNOUT'
   }
 }
+
+export const showFavorites = (bool) => {
+  return {
+    type: 'SHOW_FAVORITES',
+    shouldShowFavorites: bool
+  };
+};
