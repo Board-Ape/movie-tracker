@@ -83,6 +83,7 @@ function getAllFavorites(req, res, next) {
 }
 
 function deleteFavorite(req, res, next) {
+  console.log(req.body)
   var movie_id = parseInt(req.params.movie_id);
   var user_id = parseInt(req.params.id);
   db.result('delete from favorites where user_id = $1 and movie_id = $2', [user_id, movie_id]).then(function(result) {
