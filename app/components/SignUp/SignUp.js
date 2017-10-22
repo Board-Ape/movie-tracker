@@ -17,9 +17,9 @@ class SignUp extends Component {
   }
 
   // This is how we set localStorage
-  updateLocalStorage() {
-     localStorage.setItem('user', JSON.stringify(this.state))
-   }
+  // updateLocalStorage() {
+  //    localStorage.setItem('user', JSON.stringify(this.state))
+  //  }
 
 
   // handleClick(email) {
@@ -51,7 +51,7 @@ class SignUp extends Component {
           <button type='Submit'
             onClick={(e) => {
               e.preventDefault()
-              this.updateLocalStorage()
+              // this.updateLocalStorage()
               // this.handleClick(this.state.email)
               this.props.AddUser(this.state.name, this.state.password, this.state.email);
             }}>

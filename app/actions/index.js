@@ -13,6 +13,7 @@ export const moviesIsLoading = (bool) => {
 };
 
 export const moviesFetchDataSuccess = (movies) => {
+
   return {
     type: 'MOVIES_FETCH_DATA_SUCCESS',
     movies
@@ -20,7 +21,6 @@ export const moviesFetchDataSuccess = (movies) => {
 };
 
 export const fetchMovieList = (url) => {
-
   return (dispatch) => {
     dispatch(moviesIsLoading(true));
       fetch(url)
@@ -32,6 +32,13 @@ export const fetchMovieList = (url) => {
               return response;
             })
         .then((response) => response.json())
+        .then(resp => {
+          const movies = resp.results
+          const newMovies = movies.map(movie => {
+            return Object.assign({ isFavorite: false, movie_id: movie.id }, movie)
+          })      
+          return newMovies
+        })
         .then((items) => dispatch(moviesFetchDataSuccess(items)))
         .catch(() => dispatch(moviesHasErrored(true)));
   };
@@ -79,7 +86,7 @@ export const AddUser = (name, password, email) => {
     .then(results => results.json())
     .then(res => {
       if (!res.error) {
-        (dispatch(etUserToState({
+        (dispatch(setUserToState({
           id: res.id,
           name,
           password,
@@ -93,7 +100,6 @@ export const AddUser = (name, password, email) => {
 }
 
 export const fetchFavorites = (id) => {
-  console.log(id)
   return (dispatch) => {
     fetch(`/api/users/${id}/favorites`)
     .then(response => response.json())
@@ -115,10 +121,32 @@ export const AddFavorite = (movie, id) => {
     },
     body: JSON.stringify({ movie_id: movie.id, user_id: id, title: movie.title, poster_path: movie.poster_path, release_date: movie.release_date, vote_average: movie.vote_average, overview: movie.overview })})
     .then(result => result.json())
-    .then(response => console.log(response))
+    .then(response => dispatch(updateObj(movie.movie_id, response.id)))
   }
 }
 
+export const updateObj = (movie_id, favId) => {
+    console.log('update: ', movie_id, favId)
+  return {
+    type: 'UPDATE_OBJ',
+    movie_id,
+    favId
+  }
+}
+
+export const removeFavorite = (userId, movieId) => {
+  console.log(userId, movieId)
+  return (dispatch) => {
+    fetch(`/api/users/${userId}/favorites/${movieId}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify({ user_id: userId, movie_id: movieId})})
+      .then(result => result.json())
+      .then(response => console.log(response))
+  }
+}
 
 export const toggleFavorite = (movie) => {
   return {

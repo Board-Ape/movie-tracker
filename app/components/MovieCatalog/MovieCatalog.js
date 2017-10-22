@@ -18,7 +18,7 @@ class MovieCatalog extends Component {
 
   componentDidMount() {
     this.props.fetchMovieList(`https://api.themoviedb.org/3/movie/now_playing?api_key=${key}`)
-    this.retrieveLocalStorage();
+    // this.retrieveLocalStorage();
   }
 
   render() {
