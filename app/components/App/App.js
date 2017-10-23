@@ -10,13 +10,8 @@ import Header from '../Header/Header';
 
 
 class App extends Component {
-  constructor() {
-    super();
-  }
-
   render() {
     return (
-
       <div className='grid-app'>
         <Route path='/'
           render={() =>
@@ -38,10 +33,8 @@ class App extends Component {
           render={() =>
             <MovieCatalog />}
         />
-
-        </div>
-
-    )
+      </div>
+    );
   }
 }
 
