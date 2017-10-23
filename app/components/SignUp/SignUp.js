@@ -9,11 +9,11 @@ class SignUp extends Component {
       name: '',
       password: '',
       email: ''
-    }
+    };
   }
 
-  handleChange(key, e) {
-    this.setState({ [key]: e.target.value })
+  handleChange(key, event) {
+    this.setState({ [key]: event.target.value });
   }
 
   // This is how we set localStorage
@@ -41,16 +41,16 @@ class SignUp extends Component {
           </h2>
           <input placeholder='name'
             value={this.state.name}
-            onChange={(e) => this.handleChange('name', e)} />
+            onChange={(event) => this.handleChange('name', event)} />
           <input placeholder='password'
             value={this.state.password}
-            onChange={(e) => this.handleChange('password', e)} />
+            onChange={(event) => this.handleChange('password', event)} />
           <input placeholder='email'
             value={this.state.email}
-            onChange={(e) => this.handleChange('email', e)} />
+            onChange={(event) => this.handleChange('email', event)} />
           <button type='Submit'
-            onClick={(e) => {
-              e.preventDefault()
+            onClick={(event) => {
+              event.preventDefault();
               // this.updateLocalStorage()
               // this.handleClick(this.state.email)
               this.props.AddUser(this.state.name, this.state.password, this.state.email);
@@ -59,7 +59,7 @@ class SignUp extends Component {
           </button>
         </form>
       </div>
-    )
+    );
   }
 }
 
