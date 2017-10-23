@@ -8,3 +8,12 @@
   margin: auto;
   padding: auto;
 }
+
+@media (min-width: 1500px ) {
+  .home-page {
+    width: 1500px;
+    margin: auto;
+  }
+  .movie-cards {
+  }
+}
