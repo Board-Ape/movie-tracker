@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { push } from 'react-router-redux';
+import MovieCatalog from '../MovieCatalog/MovieCatalog'
+
 
 
 class SignUp extends Component {
@@ -22,31 +24,32 @@ class SignUp extends Component {
 
   render() {
     return (
-      <div className='sign-up'>
-        <form className='signup-form'>
-          <h4 className='signup-form-header'>
-            Create New User
-          </h4>
-          <div className='signup-inputs'>
-            <input placeholder='name'
-              value={this.state.name}
-              onChange={(event) => this.handleChange('name', event)} />
-            <input placeholder='password'
-              value={this.state.password}
-              onChange={(event) => this.handleChange('password', event)} />
-            <input placeholder='email'
-              value={this.state.email}
-              onChange={(event) => this.handleChange('email', event)} />
-            <div className='sign-in-button'><Link to='/'
-              onClick={() => {
-                this.props.changeRoute('/');
-                // this.updateLocalStorage()
-                // this.handleClick(this.state.email)
-                this.props.AddUser(this.state.name, this.state.password, this.state.email);
-              }}>Submit
-            </Link></div>
-          </div>
-        </form>
+      <div>
+        <div className='sign-up'>
+          <form className='signup-form'>
+            <h4 className='signup-form-header'>
+              Create New User
+            </h4>
+            <div className='signup-inputs'>
+              <input placeholder='name'
+                value={this.state.name}
+                onChange={(event) => this.handleChange('name', event)} />
+              <input placeholder='password'
+                value={this.state.password}
+                onChange={(event) => this.handleChange('password', event)} />
+              <input placeholder='email'
+                value={this.state.email}
+                onChange={(event) => this.handleChange('email', event)} />
+              <div className='sign-in-button'><Link to='/'
+                onClick={() => {
+                  this.props.changeRoute('/');
+                  this.props.AddUser(this.state.name, this.state.password, this.state.email);
+                }}>Submit
+              </Link></div>
+            </div>
+          </form>
+        </div>
+        <MovieCatalog />
       </div>
     );
   }

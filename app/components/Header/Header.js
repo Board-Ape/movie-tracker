@@ -8,6 +8,9 @@ import PropTypes from 'prop-types';
 
 const Header = (props) => {
   return (
+
+
+
     <div className='header'>
       <h1><Link to='/'
         onClick={() => {
@@ -15,6 +18,9 @@ const Header = (props) => {
           props.changeRoute('/');
         }}
       >Movie Tracker</Link></h1>
+
+
+
       {
         !props.user.name &&
         <h2><Link to='/signin'>Sign-In</Link></h2>
@@ -31,6 +37,8 @@ const Header = (props) => {
           >log out</Link></h5>
         </div>
       }
+
+      
       <h2><Link to='/favorites'
         onClick={() => {
           props.showFavorites(true);
@@ -68,11 +76,10 @@ export default connect(mapStateToProps, mapDispatchToProps)(Header);
 
 Header.propTypes = {
   propsObj: PropTypes.object,
-  props: PropTypes.shape({
-    showFavorites: PropTypes.object,
-    changeRoute: PropTypes.func,
-    user: PropTypes.object,
-    name: PropTypes.object,
-    userSignOut: PropTypes.func
-  })
+  showFavorites: PropTypes.func,
+  changeRoute: PropTypes.func,
+  user: PropTypes.object,
+  name: PropTypes.object,
+  userSignOut: PropTypes.func,
+  favorites: PropTypes.array
 };
