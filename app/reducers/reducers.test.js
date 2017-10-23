@@ -23,7 +23,7 @@ describe('user reducer', () => {
   });
 
   it('should return a user when passed info', () => {
-    const action = { type: 'FETCH_USER_SUCCESS', user: mockUser };
+    const action = { type: 'SET_USER_TO_STATE', user: mockUser };
 
     expect(user(undefined, action)).toEqual(mockUser);
   });
