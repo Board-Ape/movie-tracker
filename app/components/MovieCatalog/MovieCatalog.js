@@ -11,46 +11,53 @@ class MovieCatalog extends Component {
 
   retrieveLocalStorage() {
     if (localStorage.getItem('user')) {
-      this.props.handleSignInSuccess(JSON.parse(localStorage.getItem('user')))
+      this.props.handleSignInSuccess(JSON.parse(localStorage.getItem('user')));
     }
   }
 
   componentDidMount() {
-    this.props.fetchMovieList(`https://api.themoviedb.org/3/movie/now_playing?api_key=${key}`)
-    this.retrieveLocalStorage();
+    this.props.fetchMovieList(`https://api.themoviedb.org/3/movie/now_playing?api_key=${key}`);
+    // this.retrieveLocalStorage();
   }
 
   render() {
-    const movieArray = this.props.movies
-    const movieCardsArray = movieArray.map( (movie) => {
-      return (<MovieCard key={movie.id} movie={ movie }/>)
-    })
+    const moviesToRender = this.props.shouldShowFavorites === true ? this.props.favorites : this.props.movies;
+    const movieCardsArray = moviesToRender.map( (movie) => {
+      return (<MovieCard key={movie.id} movie={ movie }/>);
+    });
     return (
-      <div className='grid-catalog'>
-        {movieCardsArray}
+      <div className='home-page'>
+        <div className='movie-cards'>
+          {movieCardsArray}
+        </div>
       </div>
-    )
+    );
   }
 }
 
 const mapStateToProps = (state) => {
   return {
     movies: state.movies,
+    favorites: state.favorites,
     hasErrored: state.moviesHasErrored,
     isLoading: state.moviesIsLoading,
-    user: state.user
+    user: state.user,
+    shouldShowFavorites: state.shouldShowFavorites
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchMovieList: (url) => {
-      dispatch(fetchMovieList(url))
+      dispatch(fetchMovieList(url));
     },
-    handleSignInSuccess: (data) => {
-      dispatch(setUserToState(data))
+    handleSignInSuccess: (info) => {
+      dispatch(setUserToState(info));
+    },
+    showFavorites: (bool) => {
+      dispatch(showFavorites(bool));
     }
-  }
+  };
 };
 
 

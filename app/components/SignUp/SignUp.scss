@@ -1,0 +1,21 @@
+
+.signup-form {
+  display: flex;
+  flex-direction: row;
+    justify-content: space-between;
+  align-items: center;
+  padding: 5px 300px 0 10px;
+}
+
+.sign-up a:link,
+.sign-up a:visited,
+.sign-up a:hover,
+.sign-up a:active, {
+  color: #89838B;
+  text-decoration: none;  
+}
+
+.signup-form h4 {
+  // margin-right: 200px;
+  color: white;
+}

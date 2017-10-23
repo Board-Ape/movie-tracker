@@ -9,11 +9,13 @@ $mamba-gray: #89838B;
 
 body {
   background-color: $mamba-gray;
+  // background: url('./components/App/texture.png');
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .grid-app {
+  padding: 0;
   display: grid;
   justify-self: center;
 }

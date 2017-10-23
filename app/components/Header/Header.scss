@@ -1,0 +1,30 @@
+.header {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background-color: black;
+  text-align: center;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  height: 60px;
+  align-items: center;
+}
+
+Link {
+}
+
+h1,
+h2 {
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active, {
+  color: white;
+  text-decoration: none;
+  
+}

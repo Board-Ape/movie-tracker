@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import { fetchUserSigningIn } from '../../actions';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { push } from 'react-router-redux';
+import PropTypes from 'prop-types';
 
 class SignIn extends Component {
   constructor() {
@@ -8,39 +11,67 @@ class SignIn extends Component {
     this.state = {
       email: '',
       password: ''
-    }
+    };
   }
 
-  handleChange(key, e) {
-    this.setState({[key]: e.target.value })
+  handleChange(key, event) {
+    this.setState({[key]: event.target.value });
   }
 
   render() {
-    return(
+    return (
       <div className='sign-in'>
-        <input placeholder='email'
-                value={this.state.email}
-                onChange={(e) => this.handleChange('email', e)} />
-        <input placeholder='password'
-                value={this.state.password}
-                onChange={(e) => this.handleChange('password', e)} />
-        <button type='Submit'
-                onClick={(e) => {
-                  e.preventDefault()
-                  this.props.fetchUserSigningIn(this.state.email, this.state.password);
-                }}>
-          Submit
-        </button>
+        <h4 className='signin-form-header'>
+          User Sign In
+        </h4>
+        <div className='input-container'>
+          <input placeholder='email'
+            value={this.state.email}
+            onChange={(event) => this.handleChange('email', event)} />
+          <input placeholder='password'
+            value={this.state.password}
+            onChange={(event) => this.handleChange('password', event)} />
+          <div className='sign-in-button'><Link to='/'
+            onClick={() => {
+              this.props.changeRoute('/');
+              this.props.fetchUserSigningIn(this.state.email, this.state.password);
+            }}>Submit
+          </Link></div>
+        </div>
+        <h4 className='sign-up-in-link'><Link to='/signup'>Sign-Up</Link></h4>
       </div>
-    )
+    );
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchUserSigningIn: (email, password) => dispatch(fetchUserSigningIn(email, password))
+    fetchUserSigningIn: (email, password) => {
+      dispatch(fetchUserSigningIn(email, password));
+    },
+    changeRoute: (url) => {
+      dispatch(push(url));
+    }
   };
 };
 
 
 export default connect(null, mapDispatchToProps)(SignIn);
+
+<div type='Submit'
+  onClick={(event) => {
+    event.preventDefault();
+    this.props.changeRoute('/');
+    this.props.fetchUserSigningIn(this.state.email, this.state.password);
+  }}>
+  Submit
+</div>;
+
+SignIn.propTypes = {
+  propsObj: PropTypes.object,
+  props: PropTypes.shape({
+    changeRoute: PropTypes.func,
+    fetchUserSigningIn: PropTypes.func
+  })
+};
+

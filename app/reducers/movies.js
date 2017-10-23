@@ -1,13 +1,11 @@
-
 const movies = (state = [], action) => {
   switch (action.type) {
-    case 'MOVIES_FETCH_DATA_SUCCESS':
-      console.log('moviesReducer!')        
-        return action.movies.results;
+  case 'MOVIES_FETCH_DATA_SUCCESS':
+    return action.movies;
 
-        default:
-          return state;
+  default:
+    return state;
   }
-}
+};
 
 export default movies;
