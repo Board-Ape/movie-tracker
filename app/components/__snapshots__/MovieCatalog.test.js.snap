@@ -28,6 +28,7 @@ ShallowWrapper {
     "key": null,
     "nodeType": "class",
     "props": Object {
+      "favorites": undefined,
       "fetchMovieList": [Function],
       "handleSignInSuccess": [Function],
       "hasErrored": undefined,
@@ -436,6 +437,8 @@ ShallowWrapper {
           ],
         },
       ],
+      "shouldShowFavorites": undefined,
+      "showFavorites": [Function],
       "store": Object {
         "clearActions": [Function],
         "dispatch": [Function],
@@ -475,6 +478,7 @@ ShallowWrapper {
       "key": null,
       "nodeType": "class",
       "props": Object {
+        "favorites": undefined,
         "fetchMovieList": [Function],
         "handleSignInSuccess": [Function],
         "hasErrored": undefined,
@@ -883,6 +887,8 @@ ShallowWrapper {
             ],
           },
         ],
+        "shouldShowFavorites": undefined,
+        "showFavorites": [Function],
         "store": Object {
           "clearActions": [Function],
           "dispatch": [Function],
