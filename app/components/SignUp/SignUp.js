@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { AddUser } from '../../actions';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { push } from 'react-router-redux';
+
 
 class SignUp extends Component {
   constructor() {
@@ -17,22 +19,6 @@ class SignUp extends Component {
   handleChange(key, event) {
     this.setState({ [key]: event.target.value });
   }
-
-  // This is how we set localStorage
-  // updateLocalStorage() {
-  //    localStorage.setItem('user', JSON.stringify(this.state))
-  //  }
-
-
-  // handleClick(email) {
-  //   if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*
-  //   (\.\w{2,3})+$/.test(myForm.emailAddr.value))
-  //   {
-  //     return (true)
-  //   }
-  //     alert ("Invalid email address: Please Enter A Valid E-mail")
-  //     return (false)
-  // }
 
   render() {
     return (
@@ -75,3 +61,10 @@ const mapDispatchToProps = (dispatch) => {
 
 
 export default connect(null, mapDispatchToProps)(SignUp);
+
+SignUp.propTypes = {
+  propsObj: PropTypes.object,
+  props: PropTypes.shape({
+    AddUser: PropTypes.func
+  })
+};

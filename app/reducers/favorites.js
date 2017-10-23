@@ -13,7 +13,6 @@ const favorites = (state = [], action) => {
 
   default: 
     return state;
-      
   }
 };
 

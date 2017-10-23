@@ -1,15 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { toggleFavorite, AddFavorite, removeFavorite } from '../../actions';
-
-
+import PropTypes from 'prop-types';
 
 const MovieCard = (props) => {
   const poster = props.movie.poster_path;
-
-  
   const handleFavorite = (movie) => {
-    
     if (movie.isFavorite === false) {
       props.AddFavorite(movie, props.user.id);
     } else {
@@ -26,7 +22,9 @@ const MovieCard = (props) => {
     }
   };
 
-  const buttonStyle = props.movie.isFavorite ? 'favoriteButtons favorite-selected' : 'favoriteButtons';
+
+  const buttonStyle = props.movie.isFavorite ?
+    'favoriteButtons favorite-selected' : 'favoriteButtons';
 
   return (
 
@@ -39,8 +37,8 @@ const MovieCard = (props) => {
       >Add Favorite</button>
 
       <img className='movie-poster'
+        alt='movie-poster'
         src={`https://image.tmdb.org/t/p/w500${poster}`}
-        alt="movie post new movie"
       />
     </div>
   );
@@ -62,3 +60,17 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieCard);
+
+MovieCard.propTypes = {
+  props: PropTypes.object,
+  props: PropTypes.shape({
+    movie: PropTypes.object,
+    poster_path: PropTypes.string,
+    AddFavorite: PropTypes.func,
+    removeFavorite: PropTypes.func,
+    toggleFavorite: PropTypes.func,
+    user: PropTypes.object,
+    id: PropTypes.string,
+    name: PropTypes.string
+  })
+};

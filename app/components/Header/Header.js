@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { showFavorites, userSignOut } from '../../actions';
 import { push } from 'react-router-redux';
 import './Header';
+import PropTypes from 'prop-types';
 
 const Header = (props) => {
   return (
@@ -14,7 +15,7 @@ const Header = (props) => {
           props.changeRoute('/');
         }}
       >Movie Tracker</Link></h1>
-      { 
+      {
         !props.user.name &&
         <h2><Link to='/signin'>Sign-In</Link></h2>
       }
@@ -65,4 +66,13 @@ const mapDispatchToProps = (dispatch) => {
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
 
-
+Header.propTypes = {
+  propsObj: PropTypes.object,
+  props: PropTypes.shape({
+    showFavorites: PropTypes.object,
+    changeRoute: PropTypes.func,
+    user: PropTypes.object,
+    name: PropTypes.object,
+    userSignOut: PropTypes.func
+  })
+};

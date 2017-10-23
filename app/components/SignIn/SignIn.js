@@ -3,8 +3,7 @@ import { fetchUserSigningIn } from '../../actions';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { push } from 'react-router-redux';
-
-
+import PropTypes from 'prop-types';
 
 class SignIn extends Component {
   constructor() {
@@ -58,3 +57,21 @@ const mapDispatchToProps = (dispatch) => {
 
 
 export default connect(null, mapDispatchToProps)(SignIn);
+
+<div type='Submit'
+  onClick={(event) => {
+    event.preventDefault();
+    this.props.changeRoute('/');
+    this.props.fetchUserSigningIn(this.state.email, this.state.password);
+  }}>
+  Submit
+</div>;
+
+SignIn.propTypes = {
+  propsObj: PropTypes.object,
+  props: PropTypes.shape({
+    changeRoute: PropTypes.func,
+    fetchUserSigningIn: PropTypes.func
+  })
+};
+

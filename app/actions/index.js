@@ -127,8 +127,7 @@ export const AddFavorite = (movie, id) => {
         release_date: movie.release_date,
         vote_average: movie.vote_average,
         overview: movie.overview })})
-      .then(result => result.json())
-      .then(response => console.log(response));
+      .then(result => result.json());
   };
 };
 
@@ -142,8 +141,7 @@ export const removeFavorite = (userId, movieId) => {
         'Content-type': 'application/json'
       },
       body: JSON.stringify({ user_id: userId, movie_id: movieId})})
-      .then(result => result.json())
-      .then(response => console.log(response));
+      .then(result => result.json());
   };
 };
 
