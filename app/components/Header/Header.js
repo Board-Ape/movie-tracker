@@ -9,7 +9,12 @@ const Header = (props) => {
 // console.log('showFAV?: ', props.showFavorites()
   return (
     <div className='header'>
-      <h1>Movie Tracker</h1>
+      <h1><Link to='/'
+                onClick={() => {
+                  props.showFavorites(false)
+                  props.changeRoute('/')
+                }}
+                >Movie Tracker</Link></h1>
       <h2><Link to='/signin'>Sign-In</Link></h2>
       <h2><Link to='/favorites'
                 onClick={() => {
