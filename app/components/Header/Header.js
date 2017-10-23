@@ -10,7 +10,7 @@ const Header = () => {
       <h2><Link to='/signup'>Sign-Up</Link></h2>
       <h2><Link to='/favorites'>Favorites</Link></h2>
     </div>
-  )
-}
+  );
+};
 
 export default Header;
