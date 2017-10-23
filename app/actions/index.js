@@ -108,6 +108,7 @@ export const fetchFavorites = (id) => {
         dispatch(toggleFavorite(favorite))
       }))
     })
+    .then(res => console.log(res))
   }
 }
 
@@ -153,6 +154,7 @@ export const userSignOut = () => {
 }
 
 export const showFavorites = (bool) => {
+  console.log('show: ', bool)
   return {
     type: 'SHOW_FAVORITES',
     shouldShowFavorites: bool
