@@ -9,7 +9,7 @@ import './main.scss';
 import createHistory from 'history/createBrowserHistory';
 import { ConnectedRouter, routerMiddleware } from 'react-router-redux';
 
-const history = createHistory()
+const history = createHistory();
 
 const store = configureStore();
 

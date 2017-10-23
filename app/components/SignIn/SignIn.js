@@ -3,8 +3,7 @@ import { fetchUserSigningIn } from '../../actions';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { push } from 'react-router-redux';
-
-
+import PropTypes from 'prop-types';
 
 class SignIn extends Component {
   constructor() {
@@ -15,8 +14,8 @@ class SignIn extends Component {
     };
   }
 
-  handleChange(key, e) {
-    this.setState({[key]: e.target.value });
+  handleChange(key, event) {
+    this.setState({[key]: event.target.value });
   }
 
   render() {
@@ -28,10 +27,10 @@ class SignIn extends Component {
         <div className='input-container'>
           <input placeholder='email'
             value={this.state.email}
-            onChange={(e) => this.handleChange('email', e)} />
+            onChange={(event) => this.handleChange('email', event)} />
           <input placeholder='password'
             value={this.state.password}
-            onChange={(e) => this.handleChange('password', e)} />
+            onChange={(event) => this.handleChange('password', event)} />
           <div className='sign-in-button'><Link to='/'
             onClick={() => {
               this.props.changeRoute('/');
@@ -67,3 +66,11 @@ export default connect(null, mapDispatchToProps)(SignIn);
   }}>
   Submit
 </div>;
+
+SignIn.propTypes = {
+  propsObj: PropTypes.object,
+  props: PropTypes.shape({
+    changeRoute: PropTypes.func,
+    fetchUserSigningIn: PropTypes.func
+  })
+};
