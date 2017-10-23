@@ -7,16 +7,16 @@ import * as actions from '../../actions/index';
 
 describe('SignIn', () => {
   let wrapper;
-  const mockStore = configureStore()
+  const mockStore = configureStore();
   const intialState = { email: 'derp@derp.com',
-                        password: 'derp'}
-  const store = mockStore(intialState)
+    password: 'derp'};
+  const store = mockStore(intialState);
   const mockFunc = jest.fn();
 
   beforeEach( () => {
 
     wrapper = shallow(<SignIn store={ store }
-                                  />);
+    />);
   });
 
   it('should create an instance of a signin', () => {

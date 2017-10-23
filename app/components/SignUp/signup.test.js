@@ -7,17 +7,17 @@ import * as actions from '../../actions/index';
 
 describe('SignUp', () => {
   let wrapper;
-  const mockStore = configureStore()
+  const mockStore = configureStore();
   const intialState = { name: 'derp',
-                        email: 'derp@derp.com',
-                        password: 'derp'}
-  const store = mockStore(intialState)
+    email: 'derp@derp.com',
+    password: 'derp'};
+  const store = mockStore(intialState);
   const mockFunc = jest.fn();
 
   beforeEach( () => {
 
     wrapper = shallow(<SignUp store={ store }
-                                  />);
+    />);
   });
 
   it('should create an instance of a signup', () => {

@@ -24,7 +24,6 @@ const MovieCard = (props) => {
 
   const buttonStyle = props.movie.isFavorite ?
     'favoriteButtons favorite-selected' : 'favoriteButtons';
-  console.log('render')
   return (
 
     <div className='movie-card'>
@@ -62,14 +61,12 @@ export default connect(mapStateToProps, mapDispatchToProps)(MovieCard);
 
 MovieCard.propTypes = {
   props: PropTypes.object,
-  props: PropTypes.shape({
-    movie: PropTypes.object,
-    poster_path: PropTypes.string,
-    AddFavorite: PropTypes.func,
-    removeFavorite: PropTypes.func,
-    toggleFavorite: PropTypes.func,
-    user: PropTypes.object,
-    id: PropTypes.string,
-    name: PropTypes.string
-  })
+  movie: PropTypes.object,
+  poster_path: PropTypes.string,
+  AddFavorite: PropTypes.func,
+  removeFavorite: PropTypes.func,
+  toggleFavorite: PropTypes.func,
+  user: PropTypes.object,
+  id: PropTypes.string,
+  name: PropTypes.string
 };
