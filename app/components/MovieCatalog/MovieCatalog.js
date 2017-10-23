@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import MovieCard from '../MovieCard/MovieCard';
-import { fetchMovieList, setUserToState } from '../../actions';
+import { fetchMovieList, setUserToState, showFavorites } from '../../actions';
+import PropTypes from 'prop-types';
 const key = require('../../../utils/key');
 
 class MovieCatalog extends Component {
@@ -62,3 +63,12 @@ const mapDispatchToProps = (dispatch) => {
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieCatalog);
+
+MovieCard.propTypes = {
+  props: PropTypes.object,
+  handleSignInSuccess: PropTypes.func,
+  fetchMovieList: PropTypes.func,
+  shouldShowFavorites: PropTypes.object,
+  favorites: PropTypes.object,
+  movies: PropTypes.object
+};

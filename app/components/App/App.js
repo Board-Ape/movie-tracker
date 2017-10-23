@@ -7,9 +7,6 @@ import SignIn from '../SignIn/SignIn';
 import SignUp from '../SignUp/SignUp';
 import Header from '../Header/Header';
 
-
-
-
 class App extends Component {
   render() {
     return (
