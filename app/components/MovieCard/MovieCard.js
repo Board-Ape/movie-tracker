@@ -22,7 +22,6 @@ const MovieCard = (props) => {
     }
   };
 
-
   const buttonStyle = props.movie.isFavorite ?
     'favoriteButtons favorite-selected' : 'favoriteButtons';
 
