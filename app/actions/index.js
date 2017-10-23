@@ -1,3 +1,4 @@
+
 export const moviesHasErrored = (bool) => {
   return {
     type: 'MOVIES_HAS_ERRORED',
@@ -160,7 +161,6 @@ export const userSignOut = () => {
 };
 
 export const showFavorites = (bool) => {
-  console.log('show: ', bool)
   return {
     type: 'SHOW_FAVORITES',
     shouldShowFavorites: bool

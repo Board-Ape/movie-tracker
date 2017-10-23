@@ -20,17 +20,16 @@ const Header = (props) => {
         <h2><Link to='/signin'>Sign-In</Link></h2>
       }
       {
-        props.user.name &&
-        <h2>Welcome, {props.user.name}</h2> 
-      }
-      {
         props.user.name && 
-        <h5><Link to='/'
-          onClick={() => {
-            props.userSignOut();
-            props.changeRoute('/');
-          }}
-        >log out</Link></h5>
+        <div>
+          <h2>Welcome, {props.user.name}</h2> 
+          <h5><Link to='/'
+            onClick={() => {
+              props.userSignOut();
+              props.changeRoute('/');
+            }}
+          >log out</Link></h5>
+        </div>
       }
       <h2><Link to='/favorites'
         onClick={() => {

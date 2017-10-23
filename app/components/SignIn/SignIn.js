@@ -15,8 +15,8 @@ class SignIn extends Component {
     };
   }
 
-  handleChange(key, e) {
-    this.setState({[key]: e.target.value });
+  handleChange(key, event) {
+    this.setState({[key]: event.target.value });
   }
 
   render() {
@@ -28,10 +28,10 @@ class SignIn extends Component {
         <div className='input-container'>
           <input placeholder='email'
             value={this.state.email}
-            onChange={(e) => this.handleChange('email', e)} />
+            onChange={(event) => this.handleChange('email', event)} />
           <input placeholder='password'
             value={this.state.password}
-            onChange={(e) => this.handleChange('password', e)} />
+            onChange={(event) => this.handleChange('password', event)} />
           <div className='sign-in-button'><Link to='/'
             onClick={() => {
               this.props.changeRoute('/');
@@ -58,12 +58,3 @@ const mapDispatchToProps = (dispatch) => {
 
 
 export default connect(null, mapDispatchToProps)(SignIn);
-
-<div type='Submit'
-  onClick={(event) => {
-    event.preventDefault();
-    this.props.changeRoute('/');
-    this.props.fetchUserSigningIn(this.state.email, this.state.password);
-  }}>
-  Submit
-</div>;
