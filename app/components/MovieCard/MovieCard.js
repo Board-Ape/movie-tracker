@@ -7,15 +7,26 @@ import { toggleFavorite, AddFavorite, removeFavorite } from '../../actions';
 const MovieCard = (props) => {
   const title = props.movie.title;
   const poster = props.movie.poster_path;
-  
 
-  const checkFavorite = (movie) => {
+  
+  const handleFavorite = (movie) => {
+    
     if (movie.isFavorite === false) {
       props.AddFavorite(movie, props.user.id)
     } else {
       props.removeFavorite(props.user.id, movie.movie_id)
     }
+    props.toggleFavorite(movie)
   }
+
+  const checkFavorite = (movie) => {
+    if (!props.user.name) {
+      alert('You must log-in to add a favorite')
+    } else {
+      handleFavorite(movie)
+    }
+  }
+
   return (
 
     <div className='movie-card'>
@@ -23,7 +34,6 @@ const MovieCard = (props) => {
           onClick={(e)=>{
             e.preventDefault()
             checkFavorite(props.movie)
-            props.toggleFavorite(props.movie)
           }}
            >Add Favorite</button>
 
