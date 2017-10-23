@@ -3,6 +3,11 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  padding: 5px 10px 0 10px;
+}
+
+.sign-in h4 {
+  color: white;
 }
 
 .sign-in-button {
@@ -12,6 +17,7 @@
   margin-top: 14px;
   font-size: 14px;
   background-color: white;
+ 
 }
 
 .sign-in-button:hover {
@@ -20,4 +26,22 @@
 
 .input-container {
   align-items: center;
+  padding: 0;
 }
+
+.sign-in a:link,
+.sign-in a:visited,
+.sign-in a:hover,
+.sign-in a:active, {
+  color: #89838B;
+  text-decoration: none;  
+}
+
+.sign-up-in-link a:link,
+.sign-up-in-link a:visited,
+.sign-up-in-link a:hover,
+.sign-up-in-link a:active {
+  color: white;
+}
+
+
