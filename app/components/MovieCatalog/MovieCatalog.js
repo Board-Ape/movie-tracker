@@ -17,15 +17,18 @@ class MovieCatalog extends Component {
   }
 
   componentDidMount() {
+    console.log(this.props)
     this.props.fetchMovieList(`https://api.themoviedb.org/3/movie/now_playing?api_key=${key}`);
     // this.retrieveLocalStorage();
   }
 
   render() {
-    const moviesToRender = this.props.shouldShowFavorites === true ? this.props.favorites : this.props.movies;
+    const moviesToRender = this.props.shouldShowFavorites ? this.props.favorites : this.props.movies;
+    console.log(this.props.shouldShowFavorites)
     const movieCardsArray = moviesToRender.map( (movie) => {
       return (<MovieCard key={movie.id} movie={ movie }/>);
     });
+    console.log(movieCardsArray, 'movie cards')
     return (
       <div className='home-page'>
         <div className='movie-cards'>
@@ -68,7 +71,7 @@ MovieCard.propTypes = {
   props: PropTypes.object,
   handleSignInSuccess: PropTypes.func,
   fetchMovieList: PropTypes.func,
-  shouldShowFavorites: PropTypes.object,
-  favorites: PropTypes.object,
-  movies: PropTypes.object
+  shouldShowFavorites: PropTypes.bool,
+  favorites: PropTypes.array,
+  movies: PropTypes.array
 };

@@ -24,7 +24,7 @@ const MovieCard = (props) => {
 
   const buttonStyle = props.movie.isFavorite ?
     'favoriteButtons favorite-selected' : 'favoriteButtons';
-
+  console.log('render')
   return (
 
     <div className='movie-card'>
