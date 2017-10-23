@@ -20,24 +20,23 @@ const Header = (props) => {
         <h2><Link to='/signin'>Sign-In</Link></h2>
       }
       {
-        props.user.name &&
-        <h2>Welcome, {props.user.name}</h2>
-      }
-      {
-        props.user.name &&
-        <h5><Link to='/'
-          onClick={() => {
-            props.userSignOut();
-            props.changeRoute('/');
-          }}
-        >log out</Link></h5>
+        props.user.name && 
+        <div>
+          <h2>Welcome, {props.user.name}</h2> 
+          <h5><Link to='/'
+            onClick={() => {
+              props.userSignOut();
+              props.changeRoute('/');
+            }}
+          >log out</Link></h5>
+        </div>
       }
       <h2><Link to='/favorites'
         onClick={() => {
           props.showFavorites(true);
           props.changeRoute('/favorites');
         }}
-      >Favorites</Link></h2>
+      >Favorites: {props.favorites.length}</Link></h2>
     </div>
   );
 };
@@ -45,7 +44,8 @@ const Header = (props) => {
 const mapStateToProps = (state) => {
   return {
     shouldShowFavorites: state.shouldShowFavorites,
-    user: state.user
+    user: state.user,
+    favorites: state.favorites
   };
 };
 

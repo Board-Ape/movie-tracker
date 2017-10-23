@@ -4,26 +4,24 @@ import { toggleFavorite, AddFavorite, removeFavorite } from '../../actions';
 import PropTypes from 'prop-types';
 
 const MovieCard = (props) => {
-  // const title = props.movie.title;
   const poster = props.movie.poster_path;
-
   const handleFavorite = (movie) => {
-
     if (movie.isFavorite === false) {
       props.AddFavorite(movie, props.user.id);
     } else {
-      props.removeFavorite(props.user.id, movie.movie_id)
+      props.removeFavorite(props.user.id, movie.movie_id);
     }
-    props.toggleFavorite(movie)
+    props.toggleFavorite(movie);
   };
 
   const checkFavorite = (movie) => {
     if (!props.user.name) {
-      alert('You must log-in to add a favorite')
+      alert('You must log-in to add a favorite');
     } else {
       handleFavorite(movie);
     }
   };
+
 
   const buttonStyle = props.movie.isFavorite ?
     'favoriteButtons favorite-selected' : 'favoriteButtons';

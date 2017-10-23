@@ -1,3 +1,4 @@
+
 export const moviesHasErrored = (bool) => {
   return {
     type: 'MOVIES_HAS_ERRORED',

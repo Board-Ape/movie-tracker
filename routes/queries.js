@@ -58,7 +58,8 @@ function addFavorite(req, res, next) {
       res.status(200).json({
         status: 'success',
         message: "Movie was added to favorites",
-        id: data.id });
+        id: data.id
+      });
     }).catch(function(err) {
       next(err);
     });
