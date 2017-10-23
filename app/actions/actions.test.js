@@ -58,11 +58,11 @@ describe('actions', () => {
   it('should create an action to detect if user fetch succeeded', () => {
     const mockUser = { name: 'DAVID' };
     const expectedAction = {
-      type: 'SET_ACTIVE_USER',
+      type: 'SET_USER_TO_STATE',
       user: mockUser
     };
 
-    expect(actions.setActiveUser(mockUser)).toEqual(expectedAction);
+    expect(actions.setUserToState(mockUser)).toEqual(expectedAction);
   });
 
 

@@ -1,12 +1,20 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow, mount, configure } from 'enzyme'
 import MovieCatalog from './MovieCatalog/MovieCatalog'
 import MovieCard from './MovieCard/MovieCard';
 import movie1 from '../../utils/mockData';
+import Adapter from 'enzyme-adapter-react-16';
+import * as actions from '../actions/index'
+
+configure({ adapter: new Adapter() })
+
 
 describe('MovieCard', () => {
   let wrapper;
   const mockMovie = movie1
+  const mockStore = configureStore()
+  const intialState = { todos: [] }
+  const store = mockStore(intialState)
 
   beforeEach( () => {
 
