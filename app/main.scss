@@ -1,3 +1,26 @@
 @import './components/App/App';
 @import './components/MovieCard/MovieCard';
 @import './components/MovieCatalog/MovieCatalog';
+@import './components/Header/Header';
+@import './components/SignIn/SignIn';
+
+
+*, 
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 5px;
+  font-family: 'Orbitron', sans-serif;
+}
+
+html,
+body {
+  width: 100vw;
+  padding: 0;
+}
+
+#main {
+  margin: 0;
+  padding: 0;
+}

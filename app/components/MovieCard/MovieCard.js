@@ -27,10 +27,12 @@ const MovieCard = (props) => {
     }
   }
 
+  const buttonStyle = props.movie.isFavorite ? 'favoriteButtons favorite-selected' : 'favoriteButtons'
+
   return (
 
     <div className='movie-card'>
-      <button className='favoriteButtons'
+      <button className={buttonStyle}
           onClick={(e)=>{
             e.preventDefault()
             checkFavorite(props.movie)
