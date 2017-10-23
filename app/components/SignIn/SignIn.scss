@@ -1,0 +1,23 @@
+.sign-in {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sign-in-button {
+  display: inline-block;
+  font-weight: 500;
+  border: 1px solid black;
+  margin-top: 14px;
+  font-size: 14px;
+  background-color: white;
+}
+
+.sign-in-button:hover {
+  background-color: lime;
+}
+
+.input-container {
+  align-items: center;
+}

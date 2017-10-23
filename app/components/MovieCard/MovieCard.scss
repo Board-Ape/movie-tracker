@@ -6,21 +6,36 @@ $akaroa-tan: #DBC6B3;
 }
 
 .favoriteButtons:hover {
-  background-color: $akaroa-tan;
-  border: 1px blue solid;
+  // background-color: $akaroa-tan;
+  // border: 1px blue solid;
+  // color: blue;
+  color: lime;
 }
 
 .movie-card {
-  display: grid;
+  display: inline-block;
   position: relative;
+  margin: 0px;
+  padding: 0px;
 }
 
 .favoriteButtons {
   z-index: 2;
   position: relative;
+  top: 30px;
+  left: 10px;
+  border: none;
+  background-color: transparent;
+  color: white;
+  text-shadow: 2px 2px black;
+  font-weight: 500;
+}
+
+.favorite-selected {
+  color: yellow;
 }
 
 .movie-poster {
-  height: 500px;
+  height: 440px;
   justify-self: stretch;
 }

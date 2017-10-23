@@ -27,7 +27,7 @@ class MovieCatalog extends Component {
     const moviesToRender = this.props.shouldShowFavorites === true ? this.props.favorites : this.props.movies
     // const movieArray = moviesToRender;
     const movieCardsArray = moviesToRender.map( (movie) => {
-      console.log(movie)
+         console.log(movie)
       return (<MovieCard key={movie.id} movie={ movie }/>)
     })
     return (

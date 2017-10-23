@@ -1,6 +1,22 @@
 .header {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  border: 2px solid magenta;
+  grid-template-columns: repeat(3, 1fr);
   background-color: black;
+  text-align: center;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  height: 60px;
+  align-items: center;
+}
+
+Link {
+  text-decoration: none;
+}
+
+h1,
+h2 {
+  margin: 0;
+  padding: 0;
+  color: white;
 }
