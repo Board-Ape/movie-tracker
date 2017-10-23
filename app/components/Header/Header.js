@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { showFavorites } from '../../actions';
+import { showFavorites, userSignOut } from '../../actions';
 import { push } from 'react-router-redux';
 import './Header';
 
@@ -22,6 +22,15 @@ const Header = (props) => {
       {
         props.user.name &&
         <h2>Welcome, {props.user.name}</h2> 
+      }
+      {
+        props.user.name && 
+        <h5><Link to='/'
+          onClick={() => {
+            props.userSignOut();
+            props.changeRoute('/');
+          }}
+        >log out</Link></h5>
       }
       <h2><Link to='/favorites'
         onClick={() => {
@@ -47,6 +56,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     changeRoute: (url) => {
       dispatch(push(url));
+    },
+    userSignOut: () => {
+      dispatch(userSignOut());
     }
   };
 };
