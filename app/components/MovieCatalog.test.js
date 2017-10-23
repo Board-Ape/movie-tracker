@@ -13,7 +13,7 @@ describe('MovieCatalog', () => {
   let wrapper;
   const mockMovie = mockMovieData
   const mockStore = configureStore()
-  const intialState = { movies: [mockMovie] }
+  const intialState = { movies: [] }
   const store = mockStore(intialState)
   const mockFunc = jest.fn();
 
