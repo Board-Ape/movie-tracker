@@ -4,6 +4,7 @@ import { Route } from 'react-router';
 import { withRouter } from 'react-router-dom';
 import SignIn from '../SignIn/SignIn';
 import SignUp from '../SignUp/SignUp';
+import Header from '../Header/Header';
 
 
 
@@ -12,6 +13,10 @@ class App extends Component {
   render() {
     return (
       <div className='grid-app'>
+        <Route path='/'
+          render={() =>
+            <Header />}
+        />
         <Route exact path='/signin'
           render={() =>
             <SignIn />}

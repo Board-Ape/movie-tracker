@@ -102,6 +102,7 @@ export const AddUser = (name, password, email) => {
 export const fetchFavorites = (id) => {
   return (dispatch) => {
     fetch(`/api/users/${id}/favorites`)
+
       .then(response => response.json())
       .then( favResponse => {
         (favResponse.data.map(favorite =>
@@ -159,6 +160,7 @@ export const userSignOut = () => {
 };
 
 export const showFavorites = (bool) => {
+  console.log('show: ', bool)
   return {
     type: 'SHOW_FAVORITES',
     shouldShowFavorites: bool

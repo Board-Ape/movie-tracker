@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import { fetchUserSigningIn } from '../../actions';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+
 
 class SignIn extends Component {
   constructor() {
@@ -34,6 +36,7 @@ class SignIn extends Component {
                 }}>
           Submit
         </button>
+        <h2><Link to='/signup'>Sign-Up</Link></h2>
       </div>
     )
   }
