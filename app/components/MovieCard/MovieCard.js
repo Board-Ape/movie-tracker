@@ -18,12 +18,12 @@ const MovieCard = (props) => {
 
       <h1>{props.title}</h1>
       <button className='favoriteButtons'
-          onClick={(e)=>{
-            e.preventDefault()
-            checkFavorite(props.movie)
-            props.toggleFavorite(props.movie)
+              onClick={(e)=>{
+                e.preventDefault()
+                checkFavorite(props.movie)
+                props.toggleFavorite(props.movie)
 
-          } }
+              }}
            >Add Favorite</button>
 
       <img className='movie-poster'

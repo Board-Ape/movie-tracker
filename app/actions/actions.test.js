@@ -1,5 +1,5 @@
 import * as actions from './index';
-import movieMock from '../../utils/mockData'
+import mockMovieData from '../../utils/mockMovieData'
 
 describe('actions', () => {
   it('should return an error when bool is true', () => {
@@ -30,25 +30,18 @@ describe('actions', () => {
     expect(expectation).toEqual(expected)
   })
 
-  it('should return movies when fetch is a success', () => {
-
-    const movies = movieMock
-
-    const expected = {
+  it('should create an action to detect if data fetch succeeded', () => {
+    const expectedAction = {
       type: 'MOVIES_FETCH_DATA_SUCCESS',
-      movies
-    }
+      movies: mockMovieData.results
+    };
 
-    const expectation = actions.moviesFetchDataSuccess(movies)
+  expect(actions.moviesFetchDataSuccess(mockMovieData.results)).toEqual(expectedAction);
+});
 
-    expect(expectation).toEqual(expected)
-  })
+  it('should return movie array', () => {
 
-  it.skip('should return movie array', () => {
-
-    const movies = movie1
-
-    const expected = movies
+    const expected = [movieMock]
 
     const expectation = actions.fetchMovieList('../../utils/mockData.js')
 
