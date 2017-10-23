@@ -6,7 +6,6 @@ import { push } from 'react-router-redux';
 import './Header';
 
 const Header = (props) => {
-// console.log('showFAV?: ', props.showFavorites()
   return (
     <div className='header'>
       <h1><Link to='/'
@@ -36,7 +35,7 @@ const Header = (props) => {
           props.showFavorites(true);
           props.changeRoute('/favorites');
         }}
-      >Favorites</Link></h2>
+      >Favorites: {props.favorites.length}</Link></h2>
     </div>
   );
 };
@@ -44,7 +43,8 @@ const Header = (props) => {
 const mapStateToProps = (state) => {
   return {
     shouldShowFavorites: state.shouldShowFavorites,
-    user: state.user
+    user: state.user,
+    favorites: state.favorites
   };
 };
 

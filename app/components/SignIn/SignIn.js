@@ -22,9 +22,9 @@ class SignIn extends Component {
   render() {
     return (
       <div className='sign-in'>
-        <h2 className='signin-form-header'>
+        <h4 className='signin-form-header'>
           User Sign In
-        </h2>
+        </h4>
         <div className='input-container'>
           <input placeholder='email'
             value={this.state.email}
@@ -39,7 +39,7 @@ class SignIn extends Component {
             }}>Submit
           </Link></div>
         </div>
-        <h2><Link to='/signup'>Sign-Up</Link></h2>
+        <h4 className='sign-up-in-link'><Link to='/signup'>Sign-Up</Link></h4>
       </div>
     );
   }
