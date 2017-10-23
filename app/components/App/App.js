@@ -9,15 +9,9 @@ import SignUp from '../SignUp/SignUp';
 
 
 class App extends Component {
-  constructor() {
-    super();
-  }
-
   render() {
     return (
-
       <div className='grid-app'>
-
         <Route exact path='/signin'
           render={() =>
             <SignIn />}
@@ -34,10 +28,8 @@ class App extends Component {
           render={() =>
             <MovieCatalog />}
         />
-
-        </div>
-
-    )
+      </div>
+    );
   }
 }
 
