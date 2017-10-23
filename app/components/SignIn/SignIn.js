@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { push } from 'react-router-redux';
 import PropTypes from 'prop-types';
-import MovieCatalog from '../MovieCatalog/MovieCatalog'
+import MovieCatalog from '../MovieCatalog/MovieCatalog';
 
 class SignIn extends Component {
   constructor() {
@@ -73,9 +73,7 @@ export default connect(null, mapDispatchToProps)(SignIn);
 
 SignIn.propTypes = {
   propsObj: PropTypes.object,
-  props: PropTypes.shape({
-    changeRoute: PropTypes.func,
-    fetchUserSigningIn: PropTypes.func
-  })
+  changeRoute: PropTypes.func,
+  fetchUserSigningIn: PropTypes.func
 };
 

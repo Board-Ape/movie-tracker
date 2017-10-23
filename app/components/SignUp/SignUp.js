@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { push } from 'react-router-redux';
-import MovieCatalog from '../MovieCatalog/MovieCatalog'
+import MovieCatalog from '../MovieCatalog/MovieCatalog';
 
 
 
@@ -58,7 +58,7 @@ class SignUp extends Component {
 const mapDispatchToProps = (dispatch) => {
   return {
     AddUser: (name, password, email) => dispatch(AddUser(name, password, email)),
-    changeRoute: (url) => dispatch(push(url)),
+    changeRoute: (url) => dispatch(push(url))
   };
 };
 
@@ -67,7 +67,6 @@ export default connect(null, mapDispatchToProps)(SignUp);
 
 SignUp.propTypes = {
   propsObj: PropTypes.object,
-  props: PropTypes.shape({
-    AddUser: PropTypes.func
-  })
+  changeRoute: PropTypes.func,
+  AddUser: PropTypes.func
 };
