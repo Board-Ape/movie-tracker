@@ -57,6 +57,33 @@ describe('favorites reducer tests', () => {
   })
 });
 
+describe('moviesHasErrored reducer tests', () => {
+  it('should return our initial state', () => {
+    const expectation = []
+
+    expect(moviesHasErrored(undefined, {})).toEqual(expectation);
+  });
+
+  it('should toggle favorite', () => {
+    const movie = mockMovieData.results[0]
+    const action = { type: 'TOGGLE_FAVORITE', movie };
+    const expectation = [movie];
+
+    expect(favorites(undefined, action)).toEqual(expectation);
+  });
+
+  it('should allow me to add state to a populated state array', () => {
+    const movieOne = mockMovieData.results[0]
+    const movieTwo = mockMovieData.results[1]
+    const initialState =  movieOne
+
+    const action = actions.toggleFavorite(movieTwo);
+    const expectation  = [ initialState, action.movie ]
+
+    expect(favorites(initialState[0], action)).toEqual(expectation)
+  })
+});
+
 // describe.skip('todos reducer tests', () => {
 //   it('should return our initial state', () => {
 //     const expectation = []
