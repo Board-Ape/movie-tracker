@@ -36,17 +36,8 @@ describe('actions', () => {
       movies: mockMovieData.results
     };
 
-  expect(actions.moviesFetchDataSuccess(mockMovieData.results)).toEqual(expectedAction);
-});
-
-  it('should return movie array', () => {
-
-    const expected = [movieMock]
-
-    const expectation = actions.fetchMovieList('../../utils/mockData.js')
-
-    expect(expectation).toEqual(expected)
-  })
+    expect(actions.moviesFetchDataSuccess(mockMovieData.results)).toEqual(expectedAction);
+  });
 
   it('should create an action to detect if user fetch succeeded', () => {
     const mockUser = { name: 'DAVID' };
@@ -58,5 +49,35 @@ describe('actions', () => {
     expect(actions.setUserToState(mockUser)).toEqual(expectedAction);
   });
 
+  it('should toggle a favorite when it recieves a movie', () => {
+    const movie = mockMovieData.results[0]
 
+    const expectedAction = {
+      type: 'TOGGLE_FAVORITE',
+      movie
+    }
+
+    expect(actions.toggleFavorite(movie)).toEqual(expectedAction)
+  })
+
+  it('should return action with USER_SIGNOUT type', () => {
+    const signout = {type: 'USER_SIGNOUT'}
+
+    const expectedAction = {
+      type: 'USER_SIGNOUT'
+    }
+
+    expect(actions.userSignOut()).toEqual(expectedAction)
+  })
+
+  it('should return action by boolean of favorites', () => {
+    const favorite = true
+
+    const expectedAction = {
+      type: 'SHOW_FAVORITES',
+      shouldShowFavorites: true
+    }
+
+    expect(actions.showFavorites(favorite)).toEqual(expectedAction)
+  })
 });
