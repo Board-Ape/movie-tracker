@@ -57,6 +57,7 @@ describe('favorites reducer tests', () => {
   })
 });
 
+<<<<<<< HEAD
 describe('moviesHasErrored reducer tests', () => {
   it('should return our initial state', () => {
     const expectation = []
@@ -84,6 +85,8 @@ describe('moviesHasErrored reducer tests', () => {
   })
 });
 
+=======
+>>>>>>> 0e301540584ee1100f67a2991479ea8472dad526
 // describe.skip('todos reducer tests', () => {
 //   it('should return our initial state', () => {
 //     const expectation = []
