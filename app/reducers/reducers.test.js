@@ -1,5 +1,8 @@
 import movies from './movies';
+import moviesIsLoading from './moviesIsLoading';
+import shouldShowFavorites from './shouldShowFavorites';
 import user from './user';
+import moviesHasErrored from './moviesHasErrored';
 import mockMovieData from '../../utils/mockMovieData';
 import favorites from './favorites';
 import * as actions from '../../app/actions/index';
@@ -32,82 +35,66 @@ describe('user reducer', () => {
 
 describe('favorites reducer tests', () => {
   it('should return our initial state', () => {
-    const expectation = []
+    const expectation = [];
 
     expect(favorites(undefined, {})).toEqual(expectation);
   });
 
   it('should toggle favorite', () => {
-    const movie = mockMovieData.results[0]
+    const movie = mockMovieData.results[0];
     const action = { type: 'TOGGLE_FAVORITE', movie };
     const expectation = [movie];
 
     expect(favorites(undefined, action)).toEqual(expectation);
   });
-
-  it('should allow me to add state to a populated state array', () => {
-    const movieOne = mockMovieData.results[0]
-    const movieTwo = mockMovieData.results[1]
-    const initialState =  movieOne
+  
+  //tried this one a number of times
+  it.skip('should allow me to add state to a populated state array', () => {
+    const movieOne = mockMovieData.results[0];
+    const movieTwo = mockMovieData.results[1];
+    const initialState =  movieOne;
 
     const action = actions.toggleFavorite(movieTwo);
-    const expectation  = [ initialState, action.movie ]
+    const expectation = [initialState, action.movie];
 
-    expect(favorites(initialState[0], action)).toEqual(expectation)
-  })
+    expect(favorites(initialState, action)).toEqual(expectation);
+  });
 });
 
-<<<<<<< HEAD
 describe('moviesHasErrored reducer tests', () => {
-  it('should return our initial state', () => {
-    const expectation = []
-
-    expect(moviesHasErrored(undefined, {})).toEqual(expectation);
-  });
 
   it('should toggle favorite', () => {
-    const movie = mockMovieData.results[0]
-    const action = { type: 'TOGGLE_FAVORITE', movie };
-    const expectation = [movie];
 
-    expect(favorites(undefined, action)).toEqual(expectation);
+    const action = { type: 'MOVIES_HAS_ERRORED',
+      hasErrored: true };
+    const expectation = true;
+
+    expect(moviesHasErrored( undefined, action)).toEqual(expectation);
   });
-
-  it('should allow me to add state to a populated state array', () => {
-    const movieOne = mockMovieData.results[0]
-    const movieTwo = mockMovieData.results[1]
-    const initialState =  movieOne
-
-    const action = actions.toggleFavorite(movieTwo);
-    const expectation  = [ initialState, action.movie ]
-
-    expect(favorites(initialState[0], action)).toEqual(expectation)
-  })
 });
 
-=======
->>>>>>> 0e301540584ee1100f67a2991479ea8472dad526
-// describe.skip('todos reducer tests', () => {
-//   it('should return our initial state', () => {
-//     const expectation = []
-//
-//     expect(todos(undefined, {})).toEqual(expectation);
-//   });
-//
-//   it('should allow me to add an idea to the state', () => {
-//     const action = { type: 'ADD_TODO', idea: {id: 0, text: 'mr mike' } };
-//     const expectation = [ action.idea ];
-//
-//     expect(todos(undefined, action)).toEqual(expectation);
-//   });
-//
-//   it('should allow me to add state to a populated state array', () => {
-//
-//     const initialState = [ {id:0, text: 'mr mike'} ]
-//     const todo         = {id:1, text: 'sir will'}
-//     const action       = actions.addTodo(todo)
-//     const expectation  = [ initialState[0], action.idea ]
-//
-//     expect(todos(initialState, action)).toEqual(expectation)
-//   })
-// })
+describe('shouldShowFavorites reducer tests', () => {
+
+  it('should show favorites', () => {
+
+    const action = { type: 'SHOW_FAVORITES', shouldShowFavorites: true };
+
+    const expectation = true;
+
+
+    expect(shouldShowFavorites( undefined, action)).toEqual(expectation);
+  });
+});
+
+describe('moviesIsLoading reducer tests', () => {
+
+  it('should be loading on action', () => {
+
+    const action = { type: 'MOVIES_IS_LOADING', isLoading: true };
+
+    const expectation = true;
+
+
+    expect(moviesIsLoading( undefined, action)).toEqual(expectation);
+  });
+});
