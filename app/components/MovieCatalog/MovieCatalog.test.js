@@ -1,10 +1,19 @@
 import React from 'react';
+<<<<<<< HEAD:app/components/MovieCatalog.test.js
 import { shallow, mount, configure } from 'enzyme';
 import MovieCatalog from './MovieCatalog/MovieCatalog';
 import MovieCard from './MovieCard/MovieCard';
 import mockMovieData from '../../utils/mockMovieData';
 import Adapter from 'enzyme-adapter-react-16';
 import * as actions from '../actions/index';
+=======
+import { shallow, mount, configure } from 'enzyme'
+import MovieCatalog from './MovieCatalog'
+import MovieCard from '../MovieCard/MovieCard';
+import mockMovieData from '../../../utils/mockMovieData';
+import Adapter from 'enzyme-adapter-react-16';
+import * as actions from '../../actions/index'
+>>>>>>> favorties test and header snapshot:app/components/MovieCatalog/MovieCatalog.test.js
 import configureStore from 'redux-mock-store';
 
 configure({ adapter: new Adapter() });
